@@ -82,7 +82,7 @@ textarea {
   display: flex;
   flex-direction: column;
   padding: var(--space-lg);
-  z-index: 100;
+  z-index: 200;
   transition: transform var(--transition-normal);
 }
 
@@ -193,6 +193,49 @@ textarea {
 .btn-add-transaction:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+}
+
+/* ============================
+   SIDEBAR TOGGLE (Mobile)
+   ============================ */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: 250;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.sidebar-toggle:hover {
+  background: var(--bg-card-hover);
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
 }
 
 /* ============================
@@ -968,10 +1011,24 @@ textarea {
     transform: translateX(-100%);
   }
 
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+
   .main-content {
     margin-left: 0;
     padding: var(--space-lg) var(--space-md);
     padding-bottom: calc(var(--bottomnav-height) + var(--space-lg));
+    padding-top: calc(var(--space-lg) + 60px);
   }
 
   .bottom-nav {

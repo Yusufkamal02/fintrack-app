@@ -733,7 +733,9 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--bg-primary);
   padding: var(--space-lg);
 }
@@ -747,9 +749,10 @@ textarea {
 .login-card {
   background: rgba(30, 41, 59, 0.7);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
-  padding: var(--space-2xl);
+  padding: clamp(var(--space-lg), 5vw, var(--space-2xl));
   box-shadow: var(--shadow-lg);
 }
 
@@ -785,6 +788,12 @@ textarea {
   margin-top: var(--space-xs);
 }
 
+.login-btn {
+  width: 100%;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
 .login-error {
   background: var(--accent-red-dim);
   color: var(--accent-red);
@@ -798,6 +807,13 @@ textarea {
 .login-error.show {
   display: block;
   animation: shake 0.4s ease;
+}
+
+.login-hint {
+  text-align: center;
+  margin-top: var(--space-lg);
+  color: var(--text-tertiary);
+  font-size: var(--font-size-xs);
 }
 
 /* ============================
@@ -993,10 +1009,136 @@ textarea {
     width: 95%;
     padding: var(--space-lg);
   }
+
+  /* Login responsive - tablet & small landscape */
+  .login-page {
+    padding: var(--space-md);
+  }
+
+  .login-card {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  .login-logo {
+    margin-bottom: var(--space-lg);
+  }
+
+  .login-logo .logo-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.75rem;
+  }
+
+  .login-logo h1 {
+    font-size: var(--font-size-xl);
+  }
 }
 
 @media (max-width: 480px) {
   .summary-card .card-value {
     font-size: var(--font-size-xl);
+  }
+
+  /* Login responsive - mobile */
+  .login-page {
+    padding: var(--space-sm);
+    align-items: flex-start;
+    padding-top: 10vh;
+  }
+
+  .login-container {
+    max-width: 100%;
+  }
+
+  .login-card {
+    padding: var(--space-md) var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+  }
+
+  .login-logo .logo-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .login-logo h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  .login-logo p {
+    font-size: var(--font-size-xs);
+  }
+
+  .form-input {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
+  }
+
+  .login-btn {
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+@media (max-width: 360px) {
+  /* Login responsive - very small devices */
+  .login-page {
+    padding: var(--space-xs);
+    padding-top: 8vh;
+  }
+
+  .login-card {
+    padding: var(--space-md) var(--space-sm) var(--space-lg);
+  }
+
+  .login-logo {
+    margin-bottom: var(--space-md);
+  }
+
+  .login-logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .login-logo h1 {
+    font-size: var(--font-size-base);
+  }
+
+  .form-group {
+    margin-bottom: var(--space-sm);
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .login-page {
+    padding: var(--space-sm);
+    align-items: flex-start;
+    padding-top: var(--space-md);
+  }
+
+  .login-logo {
+    margin-bottom: var(--space-md);
+  }
+
+  .login-logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .login-logo h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  .login-logo p {
+    display: none;
+  }
+
+  .form-group {
+    margin-bottom: var(--space-sm);
   }
 }

@@ -45,12 +45,12 @@ export function renderLoginPage(container) {
               />
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding: var(--space-md);">
+            <button type="submit" class="btn btn-primary login-btn">
               🔐 Masuk
             </button>
           </form>
 
-          <p style="text-align:center; margin-top: var(--space-lg); color: var(--text-tertiary); font-size: var(--font-size-xs);">
+          <p class="login-hint">
             Demo: username <strong>admin</strong> / password <strong>admin</strong>
           </p>
         </div>

@@ -164,6 +164,9 @@ export function openTransactionModal() {
   if (overlay) {
     document.getElementById('tx-date').value = getTodayISO();
     overlay.classList.add('active');
-    document.getElementById('tx-amount').focus();
+    // Only auto-focus on desktop to avoid mobile keyboard triggering resize
+    if (window.innerWidth > 768) {
+      document.getElementById('tx-amount').focus();
+    }
   }
 }
